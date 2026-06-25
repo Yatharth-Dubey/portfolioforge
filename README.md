@@ -1,3 +1,7 @@
+![React](https://img.shields.io/badge/React-19-blue)
+![Vite](https://img.shields.io/badge/Vite-8-purple)
+![TypeScript](https://img.shields.io/badge/TypeScript-blue)
+![License](https://img.shields.io/github/license/Yatharth-Dubey/portfolioforge)
 # PortfolioForge — Modern Developer Portfolio
 
 A modern, responsive, and highly customizable portfolio template built with **React + TypeScript + Vite**.
