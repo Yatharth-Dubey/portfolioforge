@@ -5,6 +5,7 @@ import { playClickSound } from "../utils/sound";
 import gsap from "gsap";
 import githubIcon from "../assets/github.png";
 import linkedinIcon from "../assets/linkedin.png";
+import { portfolio } from "../config/portfolio.config";
 
 type HeroProps = {
   name: string;
@@ -55,7 +56,7 @@ export default function Hero({ name, role, imageUrl }: HeroProps) {
         <div className="hero-content">
           <div className="hero-badge">
             <Sparkles size={16} />
-            <span>Welcome to my portfolio</span>
+            <span>{portfolio.hero.badge}</span>
           </div>
           <h1 className="hero-title">
             Hi, I'm{" "}
@@ -80,7 +81,7 @@ export default function Hero({ name, role, imageUrl }: HeroProps) {
           </div>
           <div className="hero-social">
             <a 
-              href="https://github.com/Yatharth-Dubey" 
+              href={portfolio.profile.socials.github}
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link"
@@ -90,7 +91,7 @@ export default function Hero({ name, role, imageUrl }: HeroProps) {
               <img src={githubIcon} alt="github" className="heroicon" />
             </a>
             <a 
-              href="https://www.linkedin.com/in/yatharth-dubey-34a532316" 
+              href={portfolio.profile.socials.linkedin}
               target="_blank" 
               rel="noopener noreferrer"
               className="social-link"
@@ -142,11 +143,11 @@ export default function Hero({ name, role, imageUrl }: HeroProps) {
               </p>
               <p className="code-line code-indent-1">
                 <span className="code-property">passion</span>:{" "}
-                <span className="code-string">"Building UI"</span>,
+                <span className="code-string">"{portfolio.hero.passion}"</span>,
               </p>
               <p className="code-line code-indent-1">
                 <span className="code-property">projects</span>:{" "}
-                <span className="code-number">8+</span>,
+                <span className="code-number">"{portfolio.hero.projects}"</span>,
               </p>
               <p className="code-line code-indent-1">
                 <span className="code-property">available</span>:{" "}

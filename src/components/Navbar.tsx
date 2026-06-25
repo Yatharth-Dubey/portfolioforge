@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { Menu, X, Moon, Sun, Volume2, VolumeX } from "lucide-react";
 import { toggleSound, isSoundEnabled, playClickSound, handleScrollSound } from "../utils/sound";
+import { portfolio } from "../config/portfolio.config";
 import "./styles/Navbar.css";
 
 type NavItem = {
@@ -113,7 +114,7 @@ export default function Navbar({ toggleTheme, darkMode }: NavbarProps) {
     <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>
       <div className="navbar-container">
         <h2 className="navbar-logo" onClick={() => {playClickSound(); scrollTo("hero");}}>
-          YATHARTH
+          {portfolio.profile.name.toUpperCase()}
         </h2>
         
         <div className="navbar-links">

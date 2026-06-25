@@ -29,13 +29,15 @@ import blogpick2 from "../assets/blogpick2.png";
 import blogpick3 from "../assets/blogpick3.png";
 import weather from "../assets/weatherapp.png"
 import snakegame from "../assets/snakegame.png"
+import { portfolio } from '../config/portfolio.config';
+
 gsap.registerPlugin(ScrollTrigger);
 
 interface Project {
   id: number;
   title: string;
   description: string;
-  image: string[];
+  image?: string[];
   techStack: string[];
   githubUrl: string;
   liveUrl: string;
@@ -60,7 +62,7 @@ const Projects: React.FC = () => {
             const newIndexes = { ...prev };
             const currentIndex = newIndexes[project.id] || 0;
             newIndexes[project.id] =
-              (currentIndex + 1) % project.image.length;
+              (currentIndex + 1) % (project.image?.length || 1);
             return newIndexes;
           });
         }, intervalTime);
@@ -98,89 +100,7 @@ const Projects: React.FC = () => {
   }, []);
   const [activeFilter, setActiveFilter] = useState<string>('All');
 
-  const projects: Project[] = [
-    {
-      id: 1,
-      title: "RBS Kids Paradise School Student Management Website (Currently in Use)",
-      description: "Full-stack web application to manage student data including Fees, Results, etc with authentication and secure access. In use by RBS Kids Paradise School.",
-      image: [rbs1, rbs2, rbs3, rbs4, rbs5],
-      techStack: ["React", "JavaScript", "MySQL", "Express", "JWT", "Bcrypt"],
-      githubUrl: "https://github.com/Yatharth-Dubey/RbsKidsManagement",
-      liveUrl: "https://rbs.eduguruji.com/",
-      category: "Full Stack",
-      featured: true
-    },
-    {
-      id: 2,
-      title: "ElectRevise — SIR Voter Record Management System ",
-      description: "Admin dashboard to manage student feedback and evaluation with secure login system.",
-      image: [sir1, sir2, sir3, sir4, sir5, sir6],
-      techStack: ["React", "JavaScript", "MySQL", "Express", "JWT"],
-      githubUrl: "#",
-      liveUrl: "#",
-      category: "Full Stack"
-    },
-    {
-      id: 3,
-      title: "UniCircle (In Progress)",
-      description: "A social platform for students to connect, share, and collaborate.",
-      image: [unicircle0, unicircle1, unicircle2, unicircle3, unicircle4],
-      techStack: ["React", "CSS", "MongoDB", "Express", "JWT", "Bcrypt"],
-      githubUrl: "#",
-      liveUrl: "https://unicircle.eduguruji.com/",
-      category: "Full Stack"
-    },
-    {
-      id: 4,
-      title: "TypeAce",
-      description: "Typing speed test application with performance tracking and clean UI.",
-      image: [typeace1, typeace2, typeace3, typeace4],
-      techStack: ["React", "CSS", "JavaScript", "MySQL", "Express"],
-      githubUrl: "#",
-      liveUrl: "https://examatom.com/",
-      category: "Full Stack"
-    },
-    // {
-    //   id: 5,
-    //   title: "Portfolio Website",
-    //   description: "Modern responsive portfolio built using React, Vite, and TypeScript.",
-    //   image: ["your-image"],
-    //   techStack: ["React", "TypeScript", "CSS"],
-    //   githubUrl: "#",
-    //   liveUrl: "#",
-    //   category: "Frontend"
-    // },
-    {
-      id: 6,
-      title: "BlogPick (In Progress)",
-      description: "Full-stack blogging platform with authentication and content management.",
-      image: [blogpick1, blogpick2, blogpick3],
-      techStack: ["React", "CSS", "MongoDB", "Express", "JWT"],
-      githubUrl: "https://github.com/Yatharth-Dubey/BlogPick",
-      liveUrl: "#",
-      category: "Full Stack"
-    },
-    {
-      id: 7,
-      title: "Weather App",
-      description: "Simple weather app using API integration.",
-      image: [weather],
-      techStack: ["HTML", "JavaScript", "API", "CSS"],
-      githubUrl: "https://github.com/Yatharth-Dubey/WeatherApp",
-      liveUrl: "#",
-      category: "JavaScript"
-    },
-    {
-      id: 8,
-      title: "Snake Game (Python)",
-      description: "Classic snake game built using Python with custom features.",
-      image: [snakegame],
-      techStack: ["Python", "Pygame"],
-      githubUrl: "https://github.com/Yatharth-Dubey/snake-game",
-      liveUrl: "#",
-      category: "Python"
-    }
-  ];
+  const projects = portfolio.projects;
 
   const categories = ['All', ...new Set(projects.map(p => p.category))];
   
@@ -298,7 +218,7 @@ const Projects: React.FC = () => {
                       transform: `translateX(-${(imageIndexes[project.id] || 0) * 100}%)`
                     }}
                   >
-                    {project.image.map((img, i) => (
+                    {project.image?.map((img, i) => (
                       <img key={i} src={img} className="slide-image" />
                     ))}
                   </div>

@@ -5,9 +5,9 @@ import "./styles/Contact.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { playClickSound } from "../utils/sound";
+import { portfolio } from "../config/portfolio.config";
+
 gsap.registerPlugin(ScrollTrigger);
-
-
 type FormData = {
     name: string;
     email: string;
@@ -89,14 +89,14 @@ const sectionRef = useRef(null);
         setLoading(true);
         try {
             await emailjs.send(
-                "service_portYath1",
-                "template_dkr8dih",
+                portfolio.contact.emailjs.service,
+                portfolio.contact.emailjs.template,
                 {
                     name: form.name,
                     email: form.email,
                     message: form.message,
                 },
-                "enIYXSbnbZORq8vDx",
+                portfolio.contact.emailjs.publicKey,
             );
             setForm({ name: "", email: "", message: "" });
             setTouched({ name: false, email: false, message: false });
@@ -232,25 +232,25 @@ const sectionRef = useRef(null);
                 <div className="yath-contact-info yath-glass-card">
                     <div className="yath-availability-badge">
                         <span className="yath-status-dot"></span>
-                        Open for Internships & Freelance
+                        {portfolio.profile.availability}
                     </div>
                     <h2>Let's Work Together</h2>
                     <p>
                         Actively learning and improving every day.<br/>
-                        Currently open to internships, freelance work, and collaboration opportunities.
+                        Currently {portfolio.profile.availability}.
                         Let’s build something great together <Plane size={20}/>
                     </p>
                     
                     <div className="yath-info-stats">
                         <div className="yath-stat">
-                            <span className="yath-stat-number">8+</span>
+                            <span className="yath-stat-number">{portfolio.hero.projects}</span>
                             <span className="yath-stat-label">Projects Completed</span>
                         </div>
                     </div>
 
                     <div className="yath-contact-links">
                         <a 
-                            href="https://github.com/Yatharth-Dubey" 
+                            href={portfolio.profile.socials.github}
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="yath-social-link yath-github"
@@ -260,7 +260,7 @@ const sectionRef = useRef(null);
                             <span className="yath-link-arrow">→</span>
                         </a>
                         <a 
-                            href="https://www.linkedin.com/in/yatharth-dubey-34a532316" 
+                            href={portfolio.profile.socials.linkedin}
                             target="_blank" 
                             rel="noopener noreferrer"
                             className="yath-social-link yath-linkedin"

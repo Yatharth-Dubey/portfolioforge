@@ -10,6 +10,7 @@ import { playClickSound } from "./utils/sound";
 import "./index.css";
 import profileImg from "./assets/profile.jpg";
 import profileImg1 from "./assets/profile1.jpeg";
+import { portfolio } from "./config/portfolio.config";
 
 const startTour = () => {
   const driverObj = driver({
@@ -110,11 +111,11 @@ export default function App() {
     <div>
       <Navbar toggleTheme={toggleTheme} darkMode={darkMode} />
       <Hero 
-        name="Yatharth Dubey" 
-        role="Building scalable web apps & exploring full-stack development" 
-        imageUrl={profileImg}
+        name={portfolio.profile.name}
+        role={portfolio.profile.title}
+        imageUrl={portfolio.profile.images.hero}
       />
-      <About imageUrl={profileImg1} />
+      <About imageUrl={portfolio.profile.images.about} />
       <Projects />
       <Contact />
     </div>

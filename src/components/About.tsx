@@ -4,6 +4,7 @@ import { Code, Award, Briefcase, GraduationCap, Sparkles, Zap, TrendingUp, User,
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { playClickSound } from '../utils/sound';
+import { portfolio } from '../config/portfolio.config';
 gsap.registerPlugin(ScrollTrigger);
 
 type AboutProps = {
@@ -48,94 +49,17 @@ const About: React.FC<AboutProps> = ({ imageUrl }) => {
     );
   }, []);
   
-  const skillTags: string[] = [
-    "React", "JavaScript", "Python", "C/C++", "TypeScript", 
-    "Node.js", "Express.js", 
-    "MongoDB", "MySQL", "Google OAuth", "WebRTC",
-    "JWT Auth", "REST APIs",
-    "HTML", "CSS", "EmailJs",
-    "Git & GitHub(active open-source usage)", "PostMan", "Docker", "Vercel", "Linux", "Windows"
-  ];
+  const skillTags = portfolio.skills;
 
-  const experienceData = [
-    {
-      role: "Full-Stack Intern",
-      company: "Pulse by OptiMaxin",
-      duration: "Internship",
-      points: [
-        "Assisted in full-stack feature development within a professional product environment",
-        "Contributed to assigned tasks from development to deployment",
-        "Collaborated with team members and communicated progress effectively",
-        "Recognized for reliability, quick learning, and code quality"
-      ]
-    }
-  ];
+  const experienceData = portfolio.experience;
 
-  const statsData: StatItem[] = [
-    { value: "9+", label: "Worked On Projects", icon: <Code size={20} /> },
-    { value: "6449", label: "CodeVita Rank Season 12", icon: <TrendingUp size={20} /> },
-    { value: "8.74", label: "Current SGPA", icon: <Award size={20} /> },
-    { value: "3+", label: "Hackathon Paticipations", icon: <Zap size={20} /> }
-  ];
+  const statsData = portfolio.stats;
 
-  const highlightData: HighlightItem[] = [
-    { text: "Ranked 6449 in TCS CodeVita Season 12 (Round 1), a global competitive programming contest", category: "competition" },
-    { text: "State-level Bronze Medallist and National-level participant in International Robotics Competition (Avishkaar)", category: "achievement" },
-    { text: "Secured 1st place in \"Resume Making King\" at Aarohan (college-level event)", category: "achievement" },
-    { text: "Participated in IBM Hackathon 2025, building an AI-assisted solution under strict time constraints", category: "hackathon" },
-    { text: "Successfully completed the HENNGE backend challenge involving recursion-based problem solving, secure GitHub gist submission, and API-based validation with authentication", category: "certification" }
-  ];
+  const highlightData = portfolio.highlights;
 
-  const educationData = [
-    {
-      degree: "Class 10th",
-      institution: "Secondary Education",
-      year: "2021",
-      details: "Scored 94%",
-      icon: <GraduationCap size={18} />
-    },
-    {
-      degree: "Class 12th",
-      institution: "Senior Secondary Education",
-      year: "2023",
-      details: "Scored 77%",
-      icon: <GraduationCap size={18} />
-    },
-    {
-      degree: "B.Tech Computer Science",
-      institution: "Current University",
-      year: "2023 - Present",
-      details: "6th Semester | 8.74 SGPA (5th Sem)",
-      icon: <GraduationCap size={18} />
-    },
-  ];
+  const educationData = portfolio.education;
 
-  const journeyData = [
-    {
-      title: "Started Coding Journey",
-      year: "2023",
-      description: "Began exploring web development and programming fundamentals",
-      icon: <Sparkles size={18} />
-    },
-    {
-      title: "Hackathon Participation",
-      year: "2024-2025",
-      description: "Participated in IBM Hackathon and multiple college-level competitions",
-      icon: <Award size={18} />
-    },
-    {
-      title: "First Project",
-      year: "2025-2026",
-      description: "Built first full-stack application using MERN stack",
-      icon: <Code size={18} />
-    },
-    {
-      title: "Current Focus",
-      year: "2025",
-      description: "Advanced full-stack development & competitive programming",
-      icon: <TrendingUp size={18} />
-    }
-  ];
+  const journeyData = portfolio.journey;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -157,7 +81,7 @@ const About: React.FC<AboutProps> = ({ imageUrl }) => {
     playClickSound();
     const link = document.createElement('a');
     link.href = '/resume.pdf';
-    link.download = 'Resume_YatharthDubey.pdf';
+    link.download = portfolio.profile.resumeName;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -177,6 +101,25 @@ const About: React.FC<AboutProps> = ({ imageUrl }) => {
       case 'hackathon': return 'var(--gradient-end)';
       case 'certification': return '#10b981';
       default: return 'var(--gradient-start)';
+    }
+  };
+
+  const getStatIcon = (icon: string) => {
+    switch (icon) {
+      case "code":
+        return <Code size={20} />;
+
+      case "rank":
+        return <TrendingUp size={20} />;
+
+      case "award":
+        return <Award size={20} />;
+
+      case "zap":
+        return <Zap size={20} />;
+
+      default:
+        return <Code size={20} />;
     }
   };
 
@@ -202,25 +145,25 @@ const About: React.FC<AboutProps> = ({ imageUrl }) => {
               </div>
               
               <div className="about-profile-info-card">
-                <h3 className="about-profile-name">Yatharth Dubey</h3>
-                <p className="about-profile-title">Aspiring Software Engineer & Problem Solver</p>
+                <h3 className="about-profile-name">{portfolio.profile.name}</h3>
+                <p className="about-profile-title">{portfolio.profile.role}</p>
                 
                 <div className="about-profile-details">
                   <div className="about-profile-detail-item">
                     <User size={14} />
-                    <span>B.Tech in Computer Science Engineering</span>
+                    <span>{portfolio.profile.degree}</span>
                   </div>
                   <div className="about-profile-detail-item">
                     <MapPin size={14} />
-                    <span>India</span>
+                    <span>{portfolio.profile.location}</span>
                   </div>
                   <div className="about-profile-detail-item">
                     <Mail size={14} />
-                    <span>yatharthdubey12dec2004@gmail.com</span>
+                    <span>{portfolio.profile.email}</span>
                   </div>
                   <div className="about-profile-detail-item">
                     <Calendar size={14} />
-                    <span>Available for opportunities</span>
+                    <span>{portfolio.profile.availability}</span>
                   </div>
                 </div>
               </div>
@@ -231,7 +174,10 @@ const About: React.FC<AboutProps> = ({ imageUrl }) => {
           <div className="about-stats-grid">
             {statsData.map((stat, idx) => (
               <div key={idx} className="about-stat-card">
-                <div className="about-stat-icon">{stat.icon}</div>
+                <div className="about-stat-icon">  {idx === 0 && <Code size={20} />}
+                                                    {idx === 1 && <TrendingUp size={20} />}
+                                                    {idx === 2 && <Award size={20} />}
+                                                    {idx === 3 && <Zap size={20} />}</div>
                 <div className="about-stat-content">
                   <h4 className="about-stat-value">{stat.value}</h4>
                   <p className="about-stat-label">{stat.label}</p>
@@ -321,7 +267,7 @@ const About: React.FC<AboutProps> = ({ imageUrl }) => {
                 <div className="about-vertical-timeline">
                   {educationData.map((item, idx) => (
                     <div key={idx} className="about-timeline-node">
-                      <div className="about-timeline-marker">{item.icon}</div>
+                      <div className="about-timeline-marker"><GraduationCap size={18} /></div>
                       <div className="about-timeline-content-card">
                         <div className="about-timeline-year">{item.year}</div>
                         <h4 className="about-timeline-degree">{item.degree}</h4>
@@ -341,7 +287,7 @@ const About: React.FC<AboutProps> = ({ imageUrl }) => {
                 <div className="about-vertical-timeline">
                   {journeyData.map((item, idx) => (
                     <div key={idx} className="about-timeline-node">
-                      <div className="about-timeline-marker">{item.icon}</div>
+                      <div className="about-timeline-marker"><TrendingUp size={18} /></div>
                       <div className="about-timeline-content-card">
                         <div className="about-timeline-year">{item.year}</div>
                         <h4 className="about-timeline-degree">{item.title}</h4>
