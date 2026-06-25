@@ -8,8 +8,6 @@ import { driver } from "driver.js";
 import "driver.js/dist/driver.css";
 import { playClickSound } from "./utils/sound";
 import "./index.css";
-import profileImg from "./assets/profile.jpg";
-import profileImg1 from "./assets/profile1.jpeg";
 import { portfolio } from "./config/portfolio.config";
 
 const startTour = () => {

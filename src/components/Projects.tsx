@@ -4,46 +4,9 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { playClickSound } from '../utils/sound';
-import rbs1 from "../assets/rbs1.png";
-import rbs2 from "../assets/rbs2.png";
-import rbs3 from "../assets/rbs3.png";
-import rbs4 from "../assets/rbs4.png";
-import rbs5 from "../assets/rbs5.png";
-import sir1 from "../assets/sir1.png";
-import sir2 from "../assets/sir2.png";
-import sir3 from "../assets/sir3.png";
-import sir4 from "../assets/sir4.png";
-import sir5 from "../assets/sir5.png";
-import sir6 from "../assets/sir6.png";
-import typeace1 from "../assets/typeace1.png";
-import typeace2 from "../assets/typeace2.png";
-import typeace3 from "../assets/typeace3.png";
-import typeace4 from "../assets/typeace4.png";
-import unicircle0 from "../assets/unicircle0.png";
-import unicircle1 from "../assets/unicircle1.png";
-import unicircle2 from "../assets/unicircle2.png";
-import unicircle3 from "../assets/unicircle3.png";
-import unicircle4 from "../assets/unicircle4.png";
-import blogpick1 from "../assets/blogpick1.png";
-import blogpick2 from "../assets/blogpick2.png";
-import blogpick3 from "../assets/blogpick3.png";
-import weather from "../assets/weatherapp.png"
-import snakegame from "../assets/snakegame.png"
 import { portfolio } from '../config/portfolio.config';
 
 gsap.registerPlugin(ScrollTrigger);
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image?: string[];
-  techStack: string[];
-  githubUrl: string;
-  liveUrl: string;
-  category: string;
-  featured?: boolean;
-}
 
 const Projects: React.FC = () => {
 

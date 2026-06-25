@@ -1,120 +1,166 @@
-# 👨‍💻 Yatharth Dubey — Portfolio
+# PortfolioForge — Modern Developer Portfolio
 
-🚀 Aspiring Software Engineer | Full-Stack Developer | Problem Solver  
+A modern, responsive, and highly customizable portfolio template built with **React + TypeScript + Vite**.
 
-A modern, responsive portfolio showcasing my projects, skills, and journey in software development.
-
----
-
-## 🌐 Live Demo
-
-👉 https://yatharthdubey.vercel.app/
+Designed for developers, students, freelancers, and creators to showcase projects, skills, and experience with minimal setup.
 
 ---
 
-## 🧠 About Me
+## Live Demo
 
-I’m a passionate Computer Science student with a strong drive for building impactful web applications.  
-My journey started with curiosity and has grown into a commitment to solving real-world problems through technology.
-
-I actively build full-stack applications, participate in hackathons, and continuously improve my problem-solving skills through competitive programming.
+👉 https://your-demo.vercel.app/
 
 ---
 
-## 📊 Highlights
+## Features
 
-- 🏆 Ranked **6449 in TCS CodeVita Season 12 (Round 1)**
-- 🤖 State-level Bronze Medalist in **International Robotics Competition (Avishkaar)**
-- 🥇 1st Place in *Resume Making King* (College Event)
-- 💡 Participated in **IBM Hackathon 2025**
-- ✅ Completed **HENNGE Backend Challenge** (API + Authentication + Recursion)
-
----
-
-## 🛠️ Tech Stack
-
-### 💻 Languages & Core
-- JavaScript
-- TypeScript
-- Python
-- C / C++
-
-### 🌐 Web Development
-- React
-- Node.js
-- Express.js
-- HTML, CSS
-
-### 🗄️ Database
-- MongoDB
-- MySQL
-
-### 🔐 Authentication & APIs
-- JWT Authentication
-- Google OAuth
-- REST APIs
-
-### ⚙️ Tools & Platforms
-- Git & GitHub
-- Docker
-- Postman
-- Vercel
-- Linux & Windows
+✨ Modern responsive UI
+✨ Config-driven customization
+✨ Smooth animations with GSAP
+✨ Project showcase section
+✨ About & Experience sections
+✨ Resume download support
+✨ Contact form integration
+✨ Mobile friendly
+✨ Easy deployment
 
 ---
 
-## 💼 Experience
+## Tech Stack
 
-### 🏢 Full-Stack Intern — Pulse by OptiMaxin
+### Frontend
 
-- Contributed to real-world product development
-- Worked across frontend and backend features
-- Collaborated with team members effectively
-- Recognized for code quality and reliability
+* React
+* TypeScript
+* Vite
+* CSS
 
----
+### Animation
 
-## 🎓 Education
+* GSAP
 
-- 🎓 **B.Tech Computer Science Engineering** (2023 – Present)  
-  → Current SGPA: **8.74**
+### Utilities
 
-- 📘 Class 12th — 77% (2023)  
-- 📗 Class 10th — 94% (2021)
+* EmailJS
 
 ---
 
-## 📈 Stats
+## Screenshots
 
-- 🚀 9+ Projects Built  
-- 🧠 Active in Competitive Programming  
-- ⚡ 3+ Hackathon Participations  
+Place preview images inside:
 
----
+public/preview/
 
-## 🛤️ My Journey
+Example:
 
-- ✨ **2023** — Started coding & web development  
-- 🏆 **2024–25** — Hackathons & competitions  
-- 💻 **2025–26** — Built full-stack applications  
-- 📈 **Now** — Focused on advanced development & problem solving  
+preview-home.png
+preview-projects.png
+preview-mobile.png
 
 ---
 
-## 📸 Screenshots
+## Getting Started
 
-<p align="center">
-  <img src="./src/assets/preview.png" width="45%" />
-  <img src="./src/assets/preview2.png" width="45%" />
-  <img src="./src/assets/preview3.png" width="45%" />
-</p>
-
----
-
-## ⚙️ Installation
+Clone repository:
 
 ```bash
-git clone https://github.com/Yatharth-Dubey/portfolio
-cd portfolio
+git clone https://github.com/USERNAME/portfolioforge.git
+```
+
+Move into project:
+
+```bash
+cd portfolioforge
+```
+
+Install dependencies:
+
+```bash
 npm install
-npm start
+```
+
+Run development server:
+
+```bash
+npm run dev
+```
+
+Build production:
+
+```bash
+npm run build
+```
+
+Preview build:
+
+```bash
+npm run preview
+```
+
+---
+
+## Configuration
+
+Edit:
+
+```txt
+src/config/portfolio.ts
+```
+
+Update:
+
+* Profile Information
+* Skills
+* Projects
+* Experience
+* Education
+* Social Links
+* Contact Settings
+
+---
+
+## Environment Variables
+
+Create `.env`
+
+Example:
+
+```env
+VITE_EMAILJS_SERVICE=
+VITE_EMAILJS_TEMPLATE=
+VITE_EMAILJS_PUBLIC_KEY=
+```
+
+---
+
+## Folder Structure
+
+```txt
+src/
+├── assets/
+├── components/
+├── config/
+│   └── portfolio.ts
+├── styles/
+├── utils/
+└── App.tsx
+```
+
+---
+
+## Deployment
+
+Deploy instantly using:
+
+* Vercel
+* Netlify
+
+---
+
+## License
+
+MIT License
+
+---
+
+Built with ❤️ using React + TypeScript

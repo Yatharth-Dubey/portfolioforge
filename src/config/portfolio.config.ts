@@ -1,9 +1,9 @@
 import heroImage from "../assets/profile.jpg";
-import aboutImage from "../assets/profile1.jpeg";
+import aboutImage from "../assets/profile1.jpg";
 
 export const portfolio = {
   profile: {
-    name: "Yatharth Dubey",
+    name: "Jhon Doe",
     role: "Aspiring Software Engineer & Problem Solver",
     degree: "B.Tech in Computer Science Engineering",
     title: "Building scalable web apps & exploring full-stack development",
@@ -17,7 +17,7 @@ export const portfolio = {
     resumeName: "Resume.pdf",
 
     socials: {
-      github: "https://github.com/Yatharth-Dubey",
+      github: "https://github.com/Jhon Doe",
       linkedin: "https://linkedin.com/in/yourprofile",
     },
 

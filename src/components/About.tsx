@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './styles/About.css';
-import { Code, Award, Briefcase, GraduationCap, Sparkles, Zap, TrendingUp, User, Mail, MapPin, Calendar } from 'lucide-react';
+import { Code, Award, Briefcase, GraduationCap, Zap, TrendingUp, User, Mail, MapPin, Calendar } from 'lucide-react';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { playClickSound } from '../utils/sound';
@@ -10,17 +10,6 @@ gsap.registerPlugin(ScrollTrigger);
 type AboutProps = {
   imageUrl?: string;
 };
-
-interface StatItem {
-  value: string;
-  label: string;
-  icon: React.ReactNode;
-}
-
-interface HighlightItem {
-  text: string;
-  category?: string;
-}
 
 const About: React.FC<AboutProps> = ({ imageUrl }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -104,25 +93,6 @@ const About: React.FC<AboutProps> = ({ imageUrl }) => {
     }
   };
 
-  const getStatIcon = (icon: string) => {
-    switch (icon) {
-      case "code":
-        return <Code size={20} />;
-
-      case "rank":
-        return <TrendingUp size={20} />;
-
-      case "award":
-        return <Award size={20} />;
-
-      case "zap":
-        return <Zap size={20} />;
-
-      default:
-        return <Code size={20} />;
-    }
-  };
-
   return (
     <section ref={sectionRef} id="about" className="about-section page-section">
       <div className="about-bg-blob about-bg-blob-1"></div>
@@ -135,7 +105,7 @@ const About: React.FC<AboutProps> = ({ imageUrl }) => {
               <div className="about-image-wrapper">
                 <div className="about-image-border"></div>
                 {imageUrl ? (
-                  <img src={imageUrl} alt="Yatharth" className="about-profile-image-main" />
+                  <img src={imageUrl} alt="Jhon Doe" className="about-profile-image-main" />
                 ) : (
                   <div className="about-hero-photo-placeholder">
                     <Code size={48} />
