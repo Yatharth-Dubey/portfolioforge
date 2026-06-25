@@ -8,7 +8,7 @@ Designed for developers, students, freelancers, and creators to showcase project
 
 ## Live Demo
 
-👉 https://your-demo.vercel.app/
+👉 johndoeportfolioforge.vercel.app
 
 ---
 
@@ -152,7 +152,7 @@ src/
 
 Deploy instantly using:
 
-* Vercel
+* Vercel : johndoeportfolioforge.vercel.app
 * Netlify
 
 ---
